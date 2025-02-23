@@ -1,0 +1,14 @@
+# flutter pub run flutter_launcher_icons
+flutter_launcher_icons:
+  image_path: "assets/launcher_icon/icon.png"
+
+  android: "launcher_icon"
+  min_sdk_android: 21
+
+  ios: true
+  remove_alpha_channel_ios: true
+
+  windows:
+    generate: true
+    icon_size: 48
+#macos: https://www.candyicons.com/free-tools/app-icon-assets-generator

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "706966856959",
+    "project_id": "food-payed",
+    "storage_bucket": "food-payed.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706966856959:android:9f1ba690945c06cda398ca",
+        "android_client_info": {
+          "package_name": "at.glocknerstudios.food_payed"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-rNEd30aLiy5i6Q4QsjV8ACmrniVPsAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
