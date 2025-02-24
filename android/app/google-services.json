@@ -12,7 +12,20 @@
           "package_name": "at.glocknerstudios.food_payed"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "706966856959-ldnho7qp4c3t6h52agi8sr9itf8jhkir.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "at.glocknerstudios.food_payed",
+            "certificate_hash": "2be4dbf68548ab0f5f8373ed130d0628e2ebaaad"
+          }
+        },
+        {
+          "client_id": "706966856959-0s8vp4n878lvdal123mrcpomt5qbsl9d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyA-rNEd30aLiy5i6Q4QsjV8ACmrniVPsAg"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706966856959-0s8vp4n878lvdal123mrcpomt5qbsl9d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "706966856959-f4oce07al3ku4gft3m6nisjbqnri3aeo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "at.glocknerstudios.foodPayed"
+              }
+            }
+          ]
         }
       }
     }

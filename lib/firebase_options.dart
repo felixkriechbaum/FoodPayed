@@ -57,6 +57,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '706966856959',
     projectId: 'food-payed',
     storageBucket: 'food-payed.firebasestorage.app',
+    androidClientId: '706966856959-ldnho7qp4c3t6h52agi8sr9itf8jhkir.apps.googleusercontent.com',
+    iosClientId: '706966856959-f4oce07al3ku4gft3m6nisjbqnri3aeo.apps.googleusercontent.com',
     iosBundleId: 'at.glocknerstudios.foodPayed',
   );
 
@@ -66,6 +68,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '706966856959',
     projectId: 'food-payed',
     storageBucket: 'food-payed.firebasestorage.app',
+    androidClientId: '706966856959-ldnho7qp4c3t6h52agi8sr9itf8jhkir.apps.googleusercontent.com',
+    iosClientId: '706966856959-f4oce07al3ku4gft3m6nisjbqnri3aeo.apps.googleusercontent.com',
     iosBundleId: 'at.glocknerstudios.foodPayed',
   );
 
@@ -77,4 +81,5 @@ class DefaultFirebaseOptions {
     authDomain: 'food-payed.firebaseapp.com',
     storageBucket: 'food-payed.firebasestorage.app',
   );
+
 }
