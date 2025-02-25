@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:food_payed/app/app.locator.dart';
+import 'package:food_payed/services/firebase_storage_service.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseAuthService {
+  final _storage = locator<FirebaseStorageService>();
   Future<UserCredential> signInWithGoogle() async {
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -18,7 +21,16 @@ class FirebaseAuthService {
 
     // Once signed in, return the UserCredential
 
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+    UserCredential userCred =
+        await FirebaseAuth.instance.signInWithCredential(credential);
+
+    if (userCred.user != null && userCred.user!.displayName != null) {
+      _storage.addUser(userCred.user!.uid, userCred.user!.displayName!);
+
+      return userCred;
+    }
+
+    throw Exception('Google Sign In failed');
   }
 
   Future<UserCredential> signInWithApple() async {
