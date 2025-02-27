@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -5,7 +6,12 @@ import 'package:food_payed/models/entry.dart';
 
 class FirebaseStorageService {
   var db = FirebaseFirestore.instance;
+  Stream<QuerySnapshot<Map<String, dynamic>>>? onChange;
   List<(String, String)> users = [];
+
+  init() {
+    onChange = db.collection('entries').snapshots();
+  }
 
   Future<bool> addUser(String id, String username) async {
     try {

@@ -13,12 +13,19 @@ class HomeViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
 
   TextEditingController textController = TextEditingController();
+  FocusNode focusNode = FocusNode();
+
+  HomeViewModel() {
+    _storage.onChange!.listen((event) {
+      rebuildUi();
+    });
+  }
 
   Future<List<Entry>> fetchEntries() {
     return _storage.getEntries();
   }
 
-  Future<bool> add(String id) async {
+  Future<bool> add() async {
     if (textController.text.isEmpty) return false;
     final entry = Entry(
       title: textController.text,
@@ -29,8 +36,8 @@ class HomeViewModel extends BaseViewModel {
     bool result = await _storage.addEntry(entry);
 
     if (result) {
+      focusNode.unfocus();
       textController.clear();
-      rebuildUi();
     }
 
     return result;
@@ -38,7 +45,6 @@ class HomeViewModel extends BaseViewModel {
 
   Future<bool> remove(String id) async {
     bool result = await _storage.removeEntry(id);
-    if (result) rebuildUi();
     return result;
   }
 

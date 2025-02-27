@@ -38,6 +38,7 @@ class HomeView extends StackedView<HomeViewModel> {
               children: [
                 Expanded(
                   child: Container(
+                    width: screenWidth(context),
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(smallSize)),
@@ -46,6 +47,15 @@ class HomeView extends StackedView<HomeViewModel> {
                         builder: (context, snap) {
                           if (snap.connectionState == ConnectionState.done) {
                             List<Entry> entries = snap.data as List<Entry>;
+                            if (entries.isEmpty) {
+                              return const Center(
+                                child: Text(
+                                  "Keine Einträge vorhande",
+                                  style: TextStyle(
+                                      fontSize: 24, color: Colors.grey),
+                                ),
+                              );
+                            }
                             return ListView.builder(
                                 physics: const ClampingScrollPhysics(),
                                 itemCount: entries.length,
@@ -115,6 +125,8 @@ class HomeView extends StackedView<HomeViewModel> {
                         height: 50,
                         child: TextField(
                           controller: viewModel.textController,
+                          focusNode: viewModel.focusNode,
+                          onSubmitted: (value) => viewModel.add(),
                           decoration: const InputDecoration(
                             hintText: "Titel",
                             enabledBorder: OutlineInputBorder(
@@ -147,8 +159,7 @@ class HomeView extends StackedView<HomeViewModel> {
                               topRight: Radius.circular(smallSize),
                               bottomRight: Radius.circular(smallSize)),
                           onTap: () async {
-                            bool result = await viewModel
-                                .add(FirebaseAuth.instance.currentUser!.uid);
+                            bool result = await viewModel.add();
                             if (result) {
                               _showSnackbar(
                                 context,
@@ -173,9 +184,9 @@ class HomeView extends StackedView<HomeViewModel> {
                                     bottomRight: Radius.circular(smallSize)),
                               ),
                               padding: const EdgeInsets.symmetric(
-                                  vertical: smallSize, horizontal: smallSize),
+                                  vertical: smallSize, horizonqtal: smallSize),
                               child: const Icon(
-                                Icons.send,
+                                Icons.add_rounded,
                                 color: Colors.white,
                               )),
                         ),
