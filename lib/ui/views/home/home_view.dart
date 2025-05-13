@@ -184,7 +184,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                     bottomRight: Radius.circular(smallSize)),
                               ),
                               padding: const EdgeInsets.symmetric(
-                                  vertical: smallSize, horizonqtal: smallSize),
+                                  vertical: smallSize, horizontal: smallSize),
                               child: const Icon(
                                 Icons.add_rounded,
                                 color: Colors.white,
